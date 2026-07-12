@@ -26,7 +26,7 @@ class WeatherViewModel(
 
     fun onIntent(intent: WeatherIntent) {
         when (intent) {
-            //When User send an action
+            //When the user sends an action
             is WeatherIntent.LoadWeather -> loadWeather()
             is WeatherIntent.Refresh -> loadWeather()
 
@@ -35,13 +35,10 @@ class WeatherViewModel(
 
     private fun loadWeather() {
         viewModelScope.launch {
-
                 _state.update { it.copy(isLoading = true, error = null) }
-
-
             try {
                 val weather = repository.getWeather()
-                Log.d("WEATHER", weather.toString())
+                //Log.d("WEATHER", weather.toString())
                 _state.update { it.copy(isLoading = false, weather = weather) }
             } catch (e: Exception) {
                 _state.update { it.copy(isLoading = false, error = e.message) }

@@ -23,9 +23,13 @@ fun weatherCodeToLabel(code: Int): String = when (code) {
     else -> "Unknown"
 }
 
-
+// 0-> sun 2 ->partly cloudy 3 - > cloudy 61,63 , 65 -> rain 95,96 ,99 -> thunderstorm
 @DrawableRes
 fun weatherCodeToIcon(code: Int): Int = when (code) {
     0, 1 -> R.drawable.sun
+    2 -> R.drawable.partly_cloudy
+    3 -> R.drawable.cloud
+    61, 63, 65 -> R.drawable.rain
+    95, 96, 99 -> R.drawable.thunderstorm
     else -> R.drawable.cloud
 }
