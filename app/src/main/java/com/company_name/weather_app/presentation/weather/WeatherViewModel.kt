@@ -1,6 +1,5 @@
 package com.company_name.weather_app.presentation.weather
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.company_name.weather_app.domain.repository.WeatherRepository
@@ -11,7 +10,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlin.math.log10
 
 class WeatherViewModel(
     private val repository: WeatherRepository
@@ -21,8 +19,8 @@ class WeatherViewModel(
     val state: StateFlow<WeatherState> = _state.asStateFlow()
 
     private val _effect = Channel<WeatherEffect>()
-    val effect = _effect.receiveAsFlow()
 
+    
 
     fun onIntent(intent: WeatherIntent) {
         when (intent) {

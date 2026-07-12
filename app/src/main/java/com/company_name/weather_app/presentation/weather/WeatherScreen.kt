@@ -79,7 +79,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
             contentAlignment = Alignment.Center,
         ) {
             when {
-                // full-screen spinner only on the very first load (no data yet)
+
                 state.isLoading && weather == null -> {
                     CircularProgressIndicator(color = White)
                 }
@@ -130,7 +130,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                     }
                 }
 
-                // error (or any non-loading state with no data) — never leave the screen blank
+
                 else -> {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
